@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8udim6qes8ji"]
+
+[ext_resource type="Script" uid="uid://bjn6c36jb6aap" path="res://UI/HUD/Speed_data.gd" id="1_om6wh"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="Speed_data" type="Label" parent="."]
+offset_left = 1118.0
+offset_top = 42.0
+offset_right = 1158.0
+offset_bottom = 68.0
+text = "0"
+script = ExtResource("1_om6wh")

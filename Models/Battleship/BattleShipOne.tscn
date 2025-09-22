@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsklvg0b1mr6k"]
+
+[ext_resource type="PackedScene" path="res://Models/Battleship/BattleshipOne/spaceship.glb" id="1_u0ky3"]
+
+[node name="spaceship" instance=ExtResource("1_u0ky3")]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)

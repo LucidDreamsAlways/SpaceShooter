@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://5ld7ivgarok8"]
+
+[ext_resource type="Texture2D" uid="uid://dckevps781sr7" path="res://UI/HUD/MiniMap/Testing/MiniMap.png" id="1_vft85"]
+
+[node name="MiniMap" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 1520.0
+offset_top = 40.0
+offset_right = 2020.0
+offset_bottom = 540.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_vft85")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 1000.0
+offset_bottom = 1000.0
+rotation = 3.14159
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/TextureRect/SubViewportContainer"]
+transparent_bg = true
+size = Vector2i(500, 500)

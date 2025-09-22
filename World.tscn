@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://betb50ein4w85"]
+
+[ext_resource type="PackedScene" uid="uid://b8krnwwyl6s21" path="res://Models/SpaceShip/x_wing.tscn" id="1_j1qaj"]
+[ext_resource type="Script" uid="uid://dvs368a2nimto" path="res://world.gd" id="1_p1v5b"]
+[ext_resource type="Script" uid="uid://b01mwubl1a2k4" path="res://Models/SpaceShip/x_wing.gd" id="2_pitcs"]
+[ext_resource type="PackedScene" uid="uid://b8udim6qes8ji" path="res://UI/HUD/HUD.tscn" id="3_hvqpc"]
+[ext_resource type="Texture2D" uid="uid://bqa17n354iu6a" path="res://Environment/HDRI/RenderCrate-HDRI_Orbital_34_4K.hdr" id="3_q4mg4"]
+[ext_resource type="PackedScene" uid="uid://dsklvg0b1mr6k" path="res://Models/Battleship/BattleShipOne.tscn" id="4_4kjtd"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_8cr0y"]
+panorama = ExtResource("3_q4mg4")
+
+[sub_resource type="Sky" id="Sky_bwy2b"]
+sky_material = SubResource("PanoramaSkyMaterial_8cr0y")
+
+[sub_resource type="Environment" id="Environment_myfdu"]
+background_mode = 2
+sky = SubResource("Sky_bwy2b")
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0483799, 0.517026, 1.7633)
+script = ExtResource("1_p1v5b")
+
+[node name="x-wing" parent="." instance=ExtResource("1_j1qaj")]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 2.08165e-12, 5, 2.08165e-12)
+script = ExtResource("2_pitcs")
+
+[node name="Camera3D" type="Camera3D" parent="x-wing"]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 1.09085e-06, 2.56461, 0.746625)
+near = 0.001
+
+[node name="HUD" parent="x-wing/Camera3D" instance=ExtResource("3_hvqpc")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28.6021)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, -1.5246e-23, -1.5246e-23, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -31.2312, 0)
+use_collision = true
+size = Vector3(500, 500, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_myfdu")
+
+[node name="spaceship" parent="." instance=ExtResource("4_4kjtd")]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, -709.371, 240.147, -31.933)
+
+[node name="spaceship2" parent="." instance=ExtResource("4_4kjtd")]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, -492.935, -303.986, -909.47)
+
+[node name="spaceship3" parent="." instance=ExtResource("4_4kjtd")]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, -427.772, 59.2287, -1518.68)

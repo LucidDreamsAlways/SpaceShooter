@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8krnwwyl6s21"]
+
+[ext_resource type="PackedScene" uid="uid://3gb8bfgor4wt" path="res://Models/SpaceShip/x-wing.glb" id="1_jf3o2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4on20"]
+size = Vector3(12, 2, 12)
+
+[node name="x-wing" instance=ExtResource("1_jf3o2")]
+
+[node name="cockpit_windows_cockpit_B_0" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/cockpit/cockpit_windows" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.570269, -0.821458, 0, 0.821458, 0.570269, 0, 0, 0)
+
+[node name="cockpit_windows_glass" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/cockpit/cockpit_windows" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.991144, -0.132793, 0, 0.132793, 0.991144, 2.4044, 15.0887, 17.8833)
+
+[node name="cockpit_windows_glass_cockpit_B_0" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/cockpit/cockpit_windows/cockpit_windows_glass" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.995672, 0.092944, 0, -0.092944, 0.995671, 0, -19.0135, 7.84347)
+visible = false
+
+[node name="cockpit_windows_glass_1_cockpit_B_0" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/cockpit/cockpit_windows/cockpit_windows_glass/cockpit_windows_glass_1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.967041, 0.254619, 0, -0.254619, 0.967042, 0, -17.5897, 12.4714)
+visible = false
+
+[node name="hydraulics_window_01" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/cockpit/hydraulics_window_base" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.909734, 0.415191, 0, -0.415191, 0.909734, -8.75734, 1.19077, -0.00810346)
+
+[node name="hydraulics_window_02" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/cockpit/hydraulics_window_base/hydraulics_window_01" index="1"]
+transform = Transform3D(0.965926, -4.60635e-17, -0.258819, -1.38778e-17, -1, 1.26183e-16, -0.258819, -1.18292e-16, -0.965926, -9.78351e-16, 21.8634, 1.84741e-13)
+
+[node name="leg_front_UPR_legs_0" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/leg_front/leg_front_joint_top/leg_front_2/leg_front_UPR" index="0"]
+visible = false
+
+[node name="foot_front_hydraulics_top" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/leg_front/leg_front_joint_top/leg_front_2/leg_front_UPR" index="1"]
+transform = Transform3D(0.92388, 0.327074, -0.198668, 0, 0.519145, 0.854686, 0.382683, -0.789627, 0.479627, -1.98585, -16.8622, 4.79426)
+
+[node name="leg_front_LWR_legs_0" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/leg_front/leg_front_joint_top/leg_front_2/leg_front_UPR/leg_front_LWR" index="0"]
+transform = Transform3D(1, 3.4307e-09, 1.00138e-08, -2.00657e-08, 1, 8.06604e-09, 5.43095e-08, 6.68769e-08, 1, 0, 0, 0)
+visible = false
+
+[node name="foot_front" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/leg_front/leg_front_joint_top/leg_front_2/leg_front_UPR/leg_front_LWR" index="1"]
+transform = Transform3D(0.92388, -0.130885, -0.359605, 7.45058e-09, 0.939693, -0.34202, 0.382683, 0.315985, 0.868163, 0.00355877, -23.5967, -0.00859164)
+
+[node name="foot_front_legs_0" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/leg_front/leg_front_joint_top/leg_front_2/leg_front_UPR/leg_front_LWR/foot_front" index="0"]
+visible = false
+
+[node name="foot_front_hydraulics_A" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/leg_front/leg_front_joint_top/leg_front_2/leg_front_UPR/leg_front_LWR/foot_front" index="1"]
+transform = Transform3D(1, 7.25974e-08, -1.29048e-07, 1.29048e-07, -0.854647, 0.519209, -7.25974e-08, -0.519209, -0.854647, 1.59565e-14, 1.88035, 17.0632)
+
+[node name="foot_front_hydraulics_A_legs_0" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/leg_front/leg_front_joint_top/leg_front_2/leg_front_UPR/leg_front_LWR/foot_front/foot_front_hydraulics_A" index="0"]
+visible = false
+
+[node name="foot_front_hydraulics_B" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/leg_front/leg_front_joint_top/leg_front_2/leg_front_UPR/leg_front_LWR" index="2"]
+transform = Transform3D(0.92388, -0.130885, -0.359605, -7.45058e-09, 0.939693, -0.34202, 0.382683, 0.315985, 0.868163, -1.40191, -11.4717, 3.38452)
+
+[node name="foot_front_hydraulics_B_legs_0" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/leg_front/leg_front_joint_top/leg_front_2/leg_front_UPR/leg_front_LWR/foot_front_hydraulics_B" index="0"]
+visible = false
+
+[node name="foot_front_screw_legs_0" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/leg_front/leg_front_joint_top/leg_front_2/leg_front_UPR/leg_front_LWR/foot_front_screw" index="0"]
+visible = false
+
+[node name="leg_front_door_L" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/chassis" index="2"]
+transform = Transform3D(-0.463826, -0.883595, -0.064223, 0.879969, -0.467888, 0.0820747, -0.10257, -0.0184459, 0.994555, 9.27468, -20.2687, 257.801)
+
+[node name="leg_front_door_R" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/chassis" index="3"]
+transform = Transform3D(-0.463826, -0.883596, 0.064223, 0.884879, -0.458534, 0.0820747, -0.0430724, 0.0948979, 0.994555, -9.27468, -20.2687, 257.801)
+
+[node name="leg_front_door_R_chassis_0" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/chassis/leg_front_door_R" index="0"]
+transform = Transform3D(1, -1.79872e-07, 2.83921e-08, 1.60413e-07, 1, -1.38504e-08, -1.98156e-09, 1.29921e-08, 1, 0, 0, 0)
+
+[node name="wing_LWR_L" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/wing_L" index="0"]
+transform = Transform3D(1, 1.22465e-16, -1.50996e-07, 1.22465e-16, -1, 1.22465e-16, 1.50996e-07, 1.22465e-16, 1, -7.10532e-15, 0.21295, -20.0341)
+
+[node name="foot_back" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/wing_L/wing_LWR_L/engine_center_LWR/leg_back/leg_back_UPR/leg_back_LWR" index="1"]
+transform = Transform3D(0.92388, 0, -0.382683, 0, 1, 0, 0.382683, 0, 0.92388, 0.138846, -23.5037, -0.349104)
+
+[node name="feet_back_door_outer" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/wing_L/wing_LWR_L/engine_center_LWR" index="2"]
+transform = Transform3D(0.573576, -0.819152, 0, 0.819152, 0.573576, 0, 0, 0, 1, 19.7961, 14.4569, -2.9587e-11)
+
+[node name="feet_back_door_inner" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/wing_L/wing_LWR_L/engine_center_LWR" index="3"]
+transform = Transform3D(0.573576, 0.819152, 0, -0.819152, 0.573576, 0, 0, 0, 1, -19.7961, 14.4569, -2.9587e-11)
+
+[node name="wing_LWR_R" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/wing_R" index="0"]
+transform = Transform3D(1, 1.22465e-16, -1.50996e-07, 1.22465e-16, -1, 1.22465e-16, 1.50996e-07, 1.22465e-16, 1, 7.10554e-15, 0.21295, -20.0341)
+
+[node name="foot_back_2" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/wing_R/wing_LWR_R/engine_center_LWR_2/leg_back_2/leg_back_UPR_2/leg_back_LWR_3" index="1"]
+transform = Transform3D(0.92388, -2.01611e-09, 0.382683, 0, 1, 5.26836e-09, -0.382683, -4.86733e-09, 0.92388, -0.138846, -23.5037, -0.349104)
+
+[node name="feet_back_door_outer_2" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/wing_R/wing_LWR_R/engine_center_LWR_2" index="2"]
+transform = Transform3D(0.573576, -0.819152, 5.30241e-33, 0.819152, 0.573576, 0, -3.04134e-33, 4.34348e-33, 1, -19.7961, 14.4569, -2.9587e-11)
+
+[node name="feet_back_door_inner_2" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/wing_R/wing_LWR_R/engine_center_LWR_2" index="3"]
+transform = Transform3D(0.573576, 0.819152, 0, -0.819152, 0.573576, 0, 0, 0, 1, 19.7961, 14.4569, -2.9587e-11)
+
+[node name="bodybox" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36485, 1.05323)
+shape = SubResource("BoxShape3D_4on20")
