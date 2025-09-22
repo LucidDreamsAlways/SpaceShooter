@@ -4,10 +4,38 @@
 
 [node name="HUD" type="CanvasLayer"]
 
-[node name="Speed_data" type="Label" parent="."]
-offset_left = 1118.0
-offset_top = 42.0
-offset_right = 1158.0
-offset_bottom = 68.0
+[node name="SpeedLabel" type="Label" parent="."]
+offset_left = 1106.0
+offset_top = 43.0
+offset_right = 1146.0
+offset_bottom = 69.0
 text = "0"
 script = ExtResource("1_om6wh")
+
+[node name="ShieldBar" type="ProgressBar" parent="."]
+offset_left = 1127.0
+offset_top = 76.0
+offset_right = 1131.0
+offset_bottom = 103.0
+
+[node name="Label" type="Label" parent="ShieldBar"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 3.0
+offset_right = 74.0
+offset_bottom = 26.0
+text = "Shield"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = 1127.0
+offset_top = 111.0
+offset_right = 1131.0
+offset_bottom = 138.0
+
+[node name="Label" type="Label" parent="HealthBar"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 3.0
+offset_right = 77.0
+offset_bottom = 26.0
+text = "Health"
