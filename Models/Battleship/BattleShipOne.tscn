@@ -1,8 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsklvg0b1mr6k"]
+[gd_scene load_steps=4 format=3 uid="uid://dsklvg0b1mr6k"]
 
 [ext_resource type="PackedScene" uid="uid://cv0radas44qaj" path="res://Models/Battleship/BattleshipOne/spaceship.glb" id="1_u0ky3"]
 [ext_resource type="Script" uid="uid://bg5onkqng18xt" path="res://Models/Battleship/battle_ship_one.gd" id="2_fd5tf"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fd5tf"]
+size = Vector3(0.85, 0.7, 3.5)
+
 [node name="spaceship" instance=ExtResource("1_u0ky3")]
 transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
 script = ExtResource("2_fd5tf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19962944, -0.8566849)
+shape = SubResource("BoxShape3D_fd5tf")
+
+[node name="HealthLabel" type="Label3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75758123, -1.1362072)
+billboard = 1
+text = "TEST"

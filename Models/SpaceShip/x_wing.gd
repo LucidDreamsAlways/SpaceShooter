@@ -57,8 +57,8 @@ func get_input(delta: float) -> void:
 		forward_speed = lerp(forward_speed, 0.0,      acceleration * delta)
 
 	pitch_input = lerp(pitch_input, Input.get_axis("pitch_down", "pitch_up"),  input_response * delta)
-	roll_input  = lerp(roll_input,  Input.get_axis("roll_right", "roll_left"), input_response * delta)
-	yaw_input   = lerp(yaw_input,   Input.get_axis("yaw_right", "yaw_left"),   input_response * delta)
+	roll_input  = lerp(roll_input,  Input.get_axis("yaw_right", "yaw_left"), input_response * delta) 
+	yaw_input   = lerp(yaw_input,   Input.get_axis("roll_right", "roll_left"),   input_response * delta)
 
 func _physics_process(delta: float) -> void:
 	get_input(delta)
