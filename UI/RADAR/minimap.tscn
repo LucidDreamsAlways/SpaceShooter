@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://ky0eoepygqx1"]
+
+[ext_resource type="Texture2D" uid="uid://omk8t5gusqgg" path="res://UI/xwing_topdown_128.png" id="1_5n0oa"]
+
+[node name="Minimap" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_5n0oa")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+
+[node name="SubViewport" type="SubViewport" parent="TextureRect/SubViewportContainer"]
+transparent_bg = true
+size = Vector2i(128, 128)
+
+[node name="Camera3D" type="Camera3D" parent="TextureRect/SubViewportContainer/SubViewport"]
+projection = 1

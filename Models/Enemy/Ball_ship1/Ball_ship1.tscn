@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb44qx5252ba0"]
+
+[ext_resource type="Script" uid="uid://shcyh84rxhux" path="res://Models/Enemy/Ball_ship1/ball_ship_1.gd" id="1_l4qhv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ncwds"]
+radius = 6.0
+height = 12.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ncwds"]
+top_radius = 0.68
+bottom_radius = 1.32
+height = 3.65
+
+[node name="Ball_ship1" type="Node3D"]
+script = ExtResource("1_l4qhv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_ncwds")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -2.3376322, -2.416664, 6.882818)
+mesh = SubResource("CylinderMesh_ncwds")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 2.2699122, -2.416664, 6.8859)
+mesh = SubResource("CylinderMesh_ncwds")

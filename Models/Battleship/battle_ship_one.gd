@@ -1,14 +1,20 @@
 extends Node3D
 
-@export var max_health: int = 100
+@export var max_health: int = 100000
 var current_health: int
 
 @onready var health_label: Label3D = $HealthLabel
+
+@export var faction: StringName = &"enemy"
 
 func _ready():
 	current_health = max_health
 	update_health_label()
 	add_to_group("enemies")  # ✅ Now this node belongs to "enemies" group
+	add_to_group("ship") # helps filters if you want it
+
+func get_faction() -> StringName:
+	return faction
 
 func take_damage(amount: int):
 	current_health -= amount

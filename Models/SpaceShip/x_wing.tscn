@@ -226,7 +226,7 @@ mesh = SubResource("ArrayMesh_mixo8")
 skeleton = NodePath("")
 
 [node name="Camera3D" type="Camera3D" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/wing_L/wing_UPR_L/front_gun" index="2"]
-transform = Transform3D(-39.6436, 0, -3.465754e-06, 0, 39.6436, 0, 3.465754e-06, 0, -39.6436, 0, 0, 218.06088)
+transform = Transform3D(-39.643597, -1.6544327e-14, -3.4657548e-06, 2.2866301e-07, 39.55722, -2.6156, 3.4582024e-06, -2.6156, -39.55722, 0, 0, 218.06088)
 
 [node name="ProjectileLauncher" parent="Sketchfab_model/a8342898dd40463bb80c71c410b9fc64_fbx/Object_2/RootNode/XWING_pos/XWING/wing_L/wing_UPR_L/front_gun/Camera3D" index="0" instance=ExtResource("2_w84a3")]
 
@@ -244,4 +244,5 @@ transform = Transform3D(0.573576, 0.819152, 0, -0.819152, 0.573576, 0, 0, 0, 1, 
 
 [node name="bodybox" type="CollisionShape3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.36485, 1.05323)
+visible = false
 shape = SubResource("BoxShape3D_4on20")

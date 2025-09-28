@@ -1,7 +1,8 @@
+#x_wing.gd (PLAYER)
 extends CharacterBody3D
 
 # ── Flight tuning ──────────────────────────────────────────────────────────────
-@export var max_speed: float = 200.0
+@export var max_speed: float = 700.0
 @export var acceleration: float = 0.9
 @export var input_response: float = 8.0           # throttle smoothing
 @export var pitch_speed: float = 1.5              # rad/s
@@ -39,7 +40,11 @@ var yaw_rate: float   = 0.0
 
 var _last_speed: float = -1.0
 
+@export var faction: StringName = &"player"
+
+
 func _ready() -> void:
+	PlayerManager.player = self   # <-- add this
 	# Init HUD once
 	if health_bar:
 		health_bar.max_value = max_health
@@ -49,6 +54,12 @@ func _ready() -> void:
 		shield_bar.value = shield
 	if speed_label:
 		speed_label.text = "Speed: %.1f" % forward_speed
+		
+	add_to_group("ship") # helps filters if you want it
+	
+
+func get_faction() -> StringName:
+	return faction
 
 func get_input(delta: float) -> void:
 	if Input.is_action_pressed("throttle_up"):

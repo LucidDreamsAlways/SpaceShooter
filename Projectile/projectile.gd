@@ -1,12 +1,13 @@
 extends RayCast3D
 
-@export var speed : float = 300
+@export var speed : float = 2000
 @export var damage: int = 10
 
 func _physics_process(delta: float) -> void:
 	position += global_basis * Vector3.FORWARD * speed * delta 
 	target_position = Vector3.FORWARD * speed * delta
 	force_raycast_update()
+
 	
 	if is_colliding():
 		var collider = get_collider()

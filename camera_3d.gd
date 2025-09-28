@@ -14,12 +14,20 @@ extends Camera3D
 
 # ── Tilt controls ───────────────────────────────────────────────────────────
 @export var rot_tilt_scale: float = 0.003   # radians tilt per rad/s angular rate
+@export_range(0.0, 1.0, 0.01) var tpv_roll_percent: float = 0.3  # roll fraction in TPV (0..1)
 
 # ── FOV controls ────────────────────────────────────────────────────────────
 @export var base_fov: float = 45.0
 @export var max_fov: float = 55.0
 @export var fov_smooth: float = 5.0
 @export var fov_curve: float = 1.0   # >1 = kick late, <1 = kick early
+
+# ── View presets ────────────────────────────────────────────────────────────
+@export var fpv_pos := Vector3(0.0, 2.685, 0.379)
+@export var tpv_pos := Vector3(0.0, 6.25, -17.5)
+
+enum ViewMode { FPV, TPV }
+var _view_mode: ViewMode = ViewMode.FPV
 
 # ── Internals ───────────────────────────────────────────────────────────────
 var ship: Node
@@ -42,6 +50,9 @@ func _ready() -> void:
 	# Remember how the camera is placed in the editor
 	base_local_transform = transform
 	fov = base_fov
+
+	# Start at FPV using the editor's basis (rotation) but our preset position
+	_snap_to_view(_view_mode)
 
 func _process(delta: float) -> void:
 	if ship == null:
@@ -67,7 +78,10 @@ func _process(delta: float) -> void:
 
 	var tilt_x: float =  rates.x * rot_tilt_scale
 	var tilt_y: float = -rates.y * rot_tilt_scale
-	var tilt_z: float = -rates.z * rot_tilt_scale
+
+	# Roll: full in FPV, dampened in TPV
+	var roll_scale := 1.0 if _view_mode == ViewMode.FPV else tpv_roll_percent
+	var tilt_z: float = -rates.z * rot_tilt_scale * roll_scale
 
 	var target_rot: Quaternion = Quaternion(Vector3.RIGHT, tilt_x) \
 		* Quaternion(Vector3.UP, tilt_y) \
@@ -87,3 +101,20 @@ func _process(delta: float) -> void:
 	var target_fov: float = lerp(base_fov, max_fov, t_speed)
 	var a_fov: float = 1.0 - exp(-fov_smooth * delta)
 	fov = lerp(fov, target_fov, a_fov)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("change_view"):
+		_view_mode = ViewMode.TPV if _view_mode == ViewMode.FPV else ViewMode.FPV
+		_snap_to_view(_view_mode)
+
+func _snap_to_view(m: ViewMode) -> void:
+	# Reset smoothing accumulators so the change is INSTANT
+	cam_offset = Vector3.ZERO
+	cam_rot = Quaternion.IDENTITY
+
+	var t := base_local_transform
+	t.origin = fpv_pos if m == ViewMode.FPV else tpv_pos
+	base_local_transform = t
+
+	# Apply immediately this frame
+	transform = base_local_transform
