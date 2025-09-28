@@ -4,23 +4,29 @@ class_name RadarScanner
 
 @export var radar_range: float = 5000.0
 @export var detectable_groups: Array[String] = ["ship", "asteroid", "missile"]
-@export var default_enemy_faction: StringName = &"enemy" # used if no method/groups found
+@export var default_enemy_faction: StringName = &"enemy"
 
 signal contact_entered(body: Node)
 signal contact_exited(body: Node)
 
-var _tracked := {} # body -> true
+var _tracked := {} # body/area -> true
 
 func _ready() -> void:
 	monitoring = true
-	monitorable = false  # we detect others; others need not detect us
+	monitorable = false     # others don't need to detect us
+	add_to_group("radar_scanner")
+
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
+	area_entered.connect(_on_area_entered)
+	area_exited.connect(_on_area_exited)
 
-	# Keep sphere radius in sync if you edit radar_range from code:
 	var cs := get_node_or_null("CollisionShape3D") as CollisionShape3D
 	if cs and cs.shape is SphereShape3D:
 		(cs.shape as SphereShape3D).radius = radar_range
+
+func _on_area_entered(a: Area3D) -> void: _on_body_entered(a)
+func _on_area_exited(a: Area3D)  -> void: _on_body_exited(a)
 
 func _on_body_entered(body: Node) -> void:
 	if not _should_track(body):
@@ -35,11 +41,11 @@ func _on_body_exited(body: Node) -> void:
 func _should_track(body: Node) -> bool:
 	if not (body is Node3D):
 		return false
-	# group filter (fast + editor friendly)
+	if body == get_parent():  # ignore the owning ship
+		return false
 	for g in detectable_groups:
 		if body.is_in_group(g):
 			return true
-	# fallback: if it implements get_faction(), we consider it detectable
 	return body.has_method("get_faction")
 
 func get_faction_of(body: Node) -> StringName:

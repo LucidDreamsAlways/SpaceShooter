@@ -1,3 +1,4 @@
+#battle_ship_one.gd (ENEMY BATTLE SHIP 1)
 extends Node3D
 
 @export var max_health: int = 100000
